@@ -1,0 +1,30 @@
+1.Logic render() 
+
+- Đầu tiên nó chạy vào file script.js qua lệnh gọi từ file index.html
+- File script.js nhận vào { attach} từ file App.js 
+- attach(component, root) --> set root làm key và component làm value rồi gọi render()
+- render() lặp qua roots nhận lại root và component vừa set()
+- component là App() nên khi lặp sẽ gọi component() -> TH đầu tiên nó sẽ nhận được App nhận 
+giá trị default init và return qua html() loại bỏ false và dấu ,
+- component() được truyền qua output và đẩy lên qua root.innerHTML 
+2.createStores() 
+
+- nhận đối số là reducer mặc địch nhận giá trị khởi tạo để làm state ban đầu
+-> cần 1 init mặc định ở file reducer.js -> state-default = init 
+- TH đâu tiên switch trả về default: return state-default
+
+3. connect()
+- khi chạy return 1 function nhận đối số là component  -> return được lưu vào biến connecter
+- connecter() nhận đối số là App()
+- Trả về thêm 1 hàm chạy App() và trả về 1 Object được hợp nhất bởi state và các đối số có thể được truyền thêm
+- Trả về đối số cho App() để return qua html() check lỗi và truyền qua output.innerHTML lên DOM
+
+3. dispatch() nhận action và value
+- Khi chạy gọi render() lấy state từ trước đó đẩy ngược vào state ms làm đối số đầu vào truyền action sang và args mới sang
+file render bắt sự kiện khi action là ADD thì tạo biến chứ dữ liệu mới và return tạo lại state cũ và trả về mảng chứa dữ liệu cũ + dữ liệu mới
+- Lại render() ra html
+
+
+
+
+
