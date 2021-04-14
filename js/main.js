@@ -1,3 +1,4 @@
+const root = document.getElementById('root')
 import { attach } from '../store.js'
 import App from '../component/App.js'
-attach(App, document.getElementById('root'))
+attach(App, root)

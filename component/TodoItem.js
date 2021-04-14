@@ -9,11 +9,12 @@ function TodoItem({ todo, index, editIndex }) {
                 <input class="toggle" type="checkbox"${todo.complete && 'checked'} 
                 onchange="dispatch('toggle',${index})"
                 >
-                <label onclick="dispatch('Editor', ${index})">${todo.title}</label>
+                <label ondblclick="dispatch('Editor', ${index})">${todo.title}</label>
                 <button class="destroy" onclick="dispatch('destroy', ${index})"c></button>
             </div>
         <input class="edit" value="${todo.title}" autofocus
-            onkeyup="event.keyCode === 13 && dispatch('SaveEdit', this.value.trim())" || console.log('a:a')"
+            onkeyup="event.keyCode === 13 && dispatch('SaveEdit', this.value.trim()) || event.keyCode === 27 && dispatch('CancelEdit')"
+
             onblur="dispatch('SaveEdit', this.value.trim())"
         >
         </li> 
